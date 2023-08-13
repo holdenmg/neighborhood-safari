@@ -11,7 +11,7 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -30,7 +30,16 @@ Post.init(
         key: 'id',
       },
     },
+    animal_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'animal',
+        key: 'id',
+      },
+    },
   },
+  
+  
   {
     sequelize,
     timestamps: false,
