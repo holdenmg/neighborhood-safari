@@ -20,12 +20,13 @@ species: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-post_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'user',
-      key: 'id',
-    },
+  genus: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  endangered: {
+    type: DataTypes.BOOLEAN,
+  
   },
 },
 {

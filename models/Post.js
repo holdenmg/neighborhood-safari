@@ -18,6 +18,10 @@ Post.init(
     text: {
       type: DataTypes.TEXT,
     },
+    missing: {
+      type: DataTypes.BOOLEAN,
+    },
+
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -38,8 +42,6 @@ Post.init(
       },
     },
   },
-  
-  
   {
     sequelize,
     timestamps: false,

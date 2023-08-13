@@ -1,12 +1,16 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Animal } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all posts and JOIN with user data
+    // Get all posts and JOIN with user and animal data
     const postData = await Post.findAll({
       include: [
+        {model: Animal,
+          attributes: ['id', 'commmon_name', 'species', 'genus']
+        
+        },
         {
           model: User,
           attributes: ['name'],
@@ -31,7 +35,10 @@ router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
+        {model: Animal,
+          attributes: ['id', 'commmon_name', 'species', 'genus']
         
+        },
         {  model: Comment,
           attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
           include: 
@@ -62,7 +69,10 @@ router.get('/profile/edit/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
+        {model: Animal,
+          attributes: ['id', 'commmon_name', 'species', 'post_id']
         
+        },
         {  model: Comment,
           attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
           include: 

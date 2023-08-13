@@ -1,0 +1,21 @@
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Edit Post:</h3>
+
+    <form class="form new-post-form">
+      <div class="form-group">
+        <label for="post-name">Edit Title:</label>
+        <input class="form-input" type="text" id="post-name" name="post-name" value="{{name}}" />
+      </div>
+      <div class="form-group">
+        <label for="post-desc">Edit Text:</label>
+        <textarea class="form-input" id="post-desc" name="post-desc" > {{text}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primar update">Update</button>
+         <button  class="btn btn-danger cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src= "/js/postUpdateLogic.js"></script>

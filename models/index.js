@@ -30,7 +30,7 @@ Post.belongsTo(User, {
 });
 
 Post.hasOne(Animal, {
-  foreignKey: 'animal_id'
+  foreignKey: 'id'
 })
 
 module.exports = { User, Post, Comment, Animal };
