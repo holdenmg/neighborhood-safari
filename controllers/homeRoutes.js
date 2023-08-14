@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Post, User, Comment, Animal } = require('../models');
 const withAuth = require('../utils/auth');
+const Sequelize = require('sequelize');
+
 
 router.get('/', async (req, res) => {
   try {
@@ -76,17 +78,17 @@ router.get('/profile/chooseAnimal', async (req, res) => {
 router.get('/profile/showAnimals', async (req, res) => {
   try {
      // Get the search term from the user
-     const searchTerm = req.query.searchTerm;
+     //const searchTerm = req.query.searchTerm;
      
-
+     const Op = Sequelize.Op;
      // Filter the animals by the search term
      const animalData = await Animal.findAll({
-       where: {
-         common_name: `%${searchTerm}%`
-         }
-       },
-      
-    );
+      where: {
+        common_name: {
+          [Op.like]: `%${req.query.searchTerm}%`
+        }
+      }
+    });
        
     // Serialize data so the template can read it
     const animals = animalData.map((post) => post.get({ plain: true }));
