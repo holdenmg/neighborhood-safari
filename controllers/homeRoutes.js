@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll({
       include: [
         {model: Animal,
-          attributes: ['id', 'commmon_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'species', 'genus']
         
         },
         {
@@ -36,7 +36,7 @@ router.get('/post/:id', async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {model: Animal,
-          attributes: ['id', 'commmon_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'species', 'genus']
         
         },
         {  model: Comment,
@@ -70,7 +70,7 @@ router.get('/profile/edit/:id', async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {model: Animal,
-          attributes: ['id', 'commmon_name', 'species', 'post_id']
+          attributes: ['id', 'common_name', 'species', 'post_id']
         
         },
         {  model: Comment,
