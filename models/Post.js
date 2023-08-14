@@ -11,7 +11,15 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    location: {
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+   address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -20,8 +28,12 @@ Post.init(
     },
     missing: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
-
+    danger: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,

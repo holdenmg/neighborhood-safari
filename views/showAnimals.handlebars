@@ -3,7 +3,8 @@
     <div class="row mb-2">
       <div class="col-md-2">
        
-        <a href = "/profile/newPost">
+        <a href = 
+        '/profile/newPost/{{this.id}}'>
         <button class="animal_choice" id='{{animal.id}}' onCLick="getID({{this.id}})">{{animal.common_name}}   Scientific Name:  {{animal.genus}}   {{animal.species}}</button>
         </a>
       </div>
@@ -19,4 +20,4 @@
 <a href= "/profile/chooseAnimal">Back</a>
 
 
-<script src="/js/profile.js"></script>
+<script src="/js/createPost.js"></script>

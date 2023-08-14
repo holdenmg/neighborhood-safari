@@ -1,15 +1,27 @@
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>Create a New Post:</h3>
-
+    
     <form class="form new-post-form">
       <div class="form-group">
-        <label for="post-location">Location:</label>
-        <input class="form-input" type="text" id="post-location" name="post-location" />
+        <label for="post-state">State:</label>
+        <input class="form-input" type="text" id="post-state" name="post-state" />
+      </div>
+       <div class="form-group">
+        <label for="post-city">City:</label>
+        <input class="form-input" type="text" id="post-city" name="post-city" />
+      </div>
+       <div class="form-group">
+        <label for="post-location">Address:</label>
+        <input class="form-input" type="text" id="post-address" name="post-adress" />
       </div>
        <div class="form-group">
         <label for="post-danger">Is there danger to people or property? (yes/no):</label>
         <input class="form-input" type="text" id="post-danger" name="post-danger" />
+      </div>
+       <div class="form-group">
+        <label for="post-missing">Is this a missing pet? (yes/no):</label>
+        <input class="form-input" type="text" id="post-missing" name="post-missing" />
       </div>
        <div class="form-group">
       </div>
@@ -25,4 +37,4 @@
   </div>
 
 
-  <script src="/js/profile.js"></script>
+  <script src="/js/createPost.js"></script>

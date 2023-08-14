@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/profile/newPost', async (req, res) => {
+router.get('/profile/newPost/:id', async (req, res) => {
   try {
     // Get all posts and JOIN with user and animal data
     const postData = await Post.findAll({
@@ -143,21 +143,14 @@ router.get('/profile/edit/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
-        {model: Animal,
-          attributes: ['id', 'common_name', 'species', 'post_id']
         
-        },
-        {  model: Comment,
-          attributes: ['id', 'text', 'post_id', 'user_id', 'date_created'],
-          include: 
-            {
-              model: User,
-              attributes: ['name'],
-            }
-        },
         {
           model: User,
           attributes: ['name'],
+        },
+        {
+          model: Animal,
+          attributes: ['common_name'],
         }
       
       ]
@@ -181,7 +174,12 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+      include: [{ model: Post, include:
+      {
+        model: Animal,
+        attributes: ['id','common_name'],
+
+      } }],
     });
 
     const user = userData.get({ plain: true });
