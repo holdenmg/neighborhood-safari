@@ -1,13 +1,20 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#post-name').value.trim();
+  const location = document.querySelector('#post-location').value.trim();
   const text = document.querySelector('#post-desc').value.trim();
+  var animalID = "";
+  function getID(id) {
+    animalID = id
+    console.log(animalID);
+  }
 
-  if (name && text) {
+
+
+  if (location && text) {
     const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ name, text}),
+      body: JSON.stringify({ name, text, animalID}),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -37,6 +44,11 @@ const delButtonHandler = async (event) => {
   }
 };
 
+var animalID = "";
+function getID(id) {
+animalID = id
+console.log(animalID);
+}
 
 
 document
