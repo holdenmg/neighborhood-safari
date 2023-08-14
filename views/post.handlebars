@@ -1,0 +1,56 @@
+<div class="text-center">
+  <h2>{{name}}</h2>
+  <p>{{text}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+
+
+
+
+
+
+
+  {{#if comments.length}}
+  <h4>Comments:</h4>
+  <div class="col-md-6 comment-list">
+
+
+    {{#each comments as |comment| }}
+    <div class="row mb-2 comment">
+      <div class="col-md-2">
+        <h2>
+
+          <a href="/comment/{{comment.id}}"></a>
+        </h2>
+
+        <p>Created by {{user.name}} on {{format_date comment.date_created}}</p>
+      </div>
+      <div class="col-md-2">
+        <p>
+          {{comment.text}}
+        </p>
+      </div>
+
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+{{#if logged_in}}
+<div class="text-center">
+  <div class="col-md-6">
+    <h5>New Comment:</h5>
+
+    <form class="form new-comment-form">
+
+      <div class="form-group">
+
+        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+      </div>
+    </form>
+  </div>
+  {{/if}}
+  <script src="/js/commentLogic.js"></script>
