@@ -31,6 +31,78 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/profile/newPost', async (req, res) => {
+  try {
+    // Get all posts and JOIN with user and animal data
+    const postData = await Post.findAll({
+      include: [
+        {model: Animal,
+          attributes: ['id', 'common_name', 'species', 'genus']
+        
+        },
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('newPost', { 
+      posts, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/profile/chooseAnimal', async (req, res) => {
+  try {
+    
+    res.render('chooseAnimal', { 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+router.get('/profile/showAnimals', async (req, res) => {
+  try {
+     // Get the search term from the user
+     const searchTerm = req.query.searchTerm;
+     
+
+     // Filter the animals by the search term
+     const animalData = await Animal.findAll({
+       where: {
+         common_name: `%${searchTerm}%`
+         }
+       },
+      
+    );
+       
+    // Serialize data so the template can read it
+    const animals = animalData.map((post) => post.get({ plain: true }));
+    
+    // Pass serialized data and session flag into template
+    res.render('showAnimals', { 
+     animals, 
+     logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
