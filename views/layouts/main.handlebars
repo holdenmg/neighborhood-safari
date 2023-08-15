@@ -38,10 +38,11 @@
         Home
       </a>
 
-      <button id="playButton">Click for a Suprise</button>
-      <audio id="audioPlayer">
-        <source src="/public/assets/sfx/Voicy_Owl.mp3" type="audio/mpeg">
-      </audio>
+      <button id="playButton" onclick="audio.play();">Click for a Suprise</button>
+      <script type="text/javascript">
+      const audio = new Audio();
+      audio.src = "/public/assets/sfx/Voicy_Owl.mp3";
+      </script>
 
       {{#if logged_in}}
       <a href= "/profile" class="navbar-item">
