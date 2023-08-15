@@ -1,6 +1,12 @@
 <div class="text-center">
   <div id="post_header">
     <h2>{{animal.common_name}}</h2>
+    {{#if danger}}
+    <h2>DANGEROUS</h2>
+    {{/if}}
+    {{#if missing}}
+    <h2>MISSING</h2>
+    {{/if}}
     <h3>{{city}}</h3>
     <h5>{{state}}</h5>
     <h5>{{address}}</h5>

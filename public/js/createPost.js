@@ -9,17 +9,18 @@ const newFormHandler = async (event) => {
     const text = document.querySelector('#post-desc').value.trim();
     const animal_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
     
-    const danger = false;
-    const missing = false;
     
-    var dangerChecker = document.querySelector('#post-danger').value.trim();
-    if(dangerChecker === "yes"){
-      let danger = true;
+    const dangerCheck = document.querySelector('#post-danger').value
+    const missingCheck = document.querySelector('#post-missing').value
+    if( dangerCheck === "on"){
+      danger = true;
     }
-    var missingChecker = document.querySelector('#post-missing').value.trim();
-    if(missingChecker === "yes"){
-      let missing = true;
+    if( missingCheck === "on"){
+      missing = true;
     }
+    console.log(missing)
+    console.log(danger)
+  
    
     //const missing = false;
   console.log(animal_id)

@@ -1,11 +1,11 @@
-const newFormHandler = async (event) => {
+const updateButtonHandler = async (event) => {
   event.preventDefault();
 
   const state = document.querySelector('#post-state').value.trim();
   const city = document.querySelector('#post-city').value.trim();
   const address = document.querySelector('#post-address').value.trim();
   const text = document.querySelector('#post-desc').value.trim();
-  const animal_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
+  const id =  window.location.toString().split('/')[window.location.toString().split('/').length - 1]
   
   const danger = false;
   const missing = false;
@@ -19,13 +19,12 @@ const newFormHandler = async (event) => {
     let missing = true;
   }
  
-  //const missing = false;
-console.log(animal_id)
-  if (location && text) {
+
+  if (text) {
     
-    const response = await fetch(`/api/posts`, {
-      method: 'POST',
-      body: JSON.stringify({ state, city, address, text, animal_id, danger, missing}),
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ state, city, address, text, danger, missing}),
       headers: {
         'Content-Type': 'application/json',
       },
