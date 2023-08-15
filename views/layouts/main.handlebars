@@ -37,6 +37,12 @@
       <a href = "/" class="navbar-item">
         Home
       </a>
+
+      <button id="playButton">Click for a Suprise</button>
+      <audio id="audioPlayer">
+        <source src="/public/assets/sfx/Voicy_Owl.mp3" type="audio/mpeg">
+      </audio>
+
       {{#if logged_in}}
       <a href= "/profile" class="navbar-item">
         Dashboard
@@ -95,6 +101,8 @@
   <script src="/js/logout.js"></script>
   {{/if}}
 <script src = "/js/homepage.js"></script>
+
+<!-- Link to the sounds.js file -->
 <script src="/public/js/sounds.js"></script>
 </body>
 
