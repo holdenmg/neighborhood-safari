@@ -6,6 +6,8 @@
     <p class="card-header-title">
       {{animal.common_name}}
     </p>
+   
+    
     <button class="card-header-icon" aria-label="more options">
       <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -14,12 +16,20 @@
   </header>
   <div class="card-content">
     <div class="content">
-      <h6>{{post.city}}</h6>
-   <h6>{{post.state}}</h6>
+      <h6>{{post.city}} {{post.state}}</h6>
+   <h6>{{post.address}}</h6>
+   {{#if post.danger}}
+   <h6 class="has-text-danger">DANGER</h6>
+   {{/if}}
+   {{#if post.missing}}
+   <h6 class="has-text-success"> MISSING </h6>
+   {{/if}}
     <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
     </div>
     <footer class="card-footer">
-    <a href="/post/{{post.id}}" class="card-footer-item">See Post</a>
+    <a href="/post/{{post.id}}" class="card-footer-item">
+    <button class="button is-info">See Post</button>
+    </a>
   </footer>
   </div>
   {{/each}}
