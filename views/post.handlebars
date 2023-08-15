@@ -1,29 +1,42 @@
-<div class="text-center">
-  <div id="post_header">
-    <h2>{{animal.common_name}}</h2>
-    {{#if danger}}
-    <h2>DANGEROUS</h2>
-    {{/if}}
-    {{#if missing}}
-    <h2>MISSING</h2>
-    {{/if}}
-    <h3>{{city}}</h3>
-    <h5>{{state}}</h5>
-    <h5>{{address}}</h5>
-    <p>{{text}}</p>
+<div class="card">
+  <header id= "logo-blue" class="card-header">
+    <p class="card-header-title is-centered">
+      {{animal.common_name}}
+    </p>
+   
+    
+    
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <h6>{{city}} {{state}}</h6>
+   <h6>{{address}}</h6>
+   {{#if danger}}
+   <h6 class="has-text-danger">DANGER</h6>
+   {{/if}}
+   {{#if missing}}
+   <h6 class="has-text-success"> MISSING </h6>
+   {{/if}}
     <p>Created by {{user.name}} on {{format_date date_created}}</p>
+    </div>
+    <footer class="card-footer">
+    <p> {{text}} </p>
+  </footer>
   </div>
 
-
+<div id="logo-green">
+  <h3>COMMENTS:</h3>
+</div>
 
   {{#if comments.length}}
-  <h4>Comments:</h4>
+  
   <div class="col-md-6 comment-list">
 
 
     {{#each comments as |comment| }}
+    <div id="logo-grey"  class="card">
     <div class="row mb-2 comment">
-      <div class="col-md-2">
+      <div id="logo-green" class="card-header-title">
         <h2>
 
           <a href="/comment/{{comment.id}}"></a>
@@ -31,7 +44,7 @@
 
         <p>Created by {{user.name}} on {{format_date comment.date_created}}</p>
       </div>
-      <div class="col-md-2">
+      <div class="card-content">
         <p>
           {{comment.text}}
         </p>
@@ -57,6 +70,7 @@
         <button type="submit" class="btn btn-primary">Post Comment</button>
       </div>
     </form>
+  </div>
   </div>
   {{/if}}
   <script src="/js/commentLogic.js"></script>

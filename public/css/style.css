@@ -1,7 +1,18 @@
-.danger_text{
-    color: red
+
+#logo-green {
+    background-color:#A4CB6A
 }
 
-.missing_text{
-    color: green
+#logo-blue {
+    background-color: #63BFB6
 }
+
+#logo-brown {
+   
+        background-color: #BFB05C
+    }
+
+    #logo-grey{
+   
+        background-color: #F2F2F2
+    }

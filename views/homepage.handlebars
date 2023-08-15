@@ -1,8 +1,12 @@
-
+<section id = "logo-green" class="hero">
+  <div class="hero-body">
+    <img src="/assets/images/logo-png.png" width="500" height="35" >
+  </div>
+</section>
 
 {{#each posts as |post| }}
 <div class="card">
-  <header class="card-header">
+  <header id="logo-blue" class="card-header">
     <p class="card-header-title">
       {{animal.common_name}}
     </p>
@@ -14,7 +18,7 @@
       </span>
     </button>
   </header>
-  <div class="card-content">
+  <div id="logo-grey" class="card-content">
     <div class="content">
       <h6>{{post.city}} {{post.state}}</h6>
    <h6>{{post.address}}</h6>
@@ -28,7 +32,7 @@
     </div>
     <footer class="card-footer">
     <a href="/post/{{post.id}}" class="card-footer-item">
-    <button class="button is-info">See Post</button>
+    <button id="logo-brown" class="button is-info">See Post</button>
     </a>
   </footer>
   </div>
