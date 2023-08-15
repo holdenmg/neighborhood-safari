@@ -20,11 +20,11 @@ species: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  genus: {
+genus: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  endangered: {
+endangered: {
     type: DataTypes.BOOLEAN,
   
   },

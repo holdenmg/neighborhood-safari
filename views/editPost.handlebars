@@ -1,19 +1,38 @@
 <div class="row mt-4">
   <div class="col-md-6">
+    <h2>{{animal.common_name}}</h2>
     <h3>Edit Post:</h3>
 
     <form class="form new-post-form">
       <div class="form-group">
-        <label for="post-name">Edit Title:</label>
-        <input class="form-input" type="text" id="post-name" name="post-name" value="{{name}}" />
+        <label for="post-state">State:</label>
+        <input class="form-input" type="text" id="post-state" name="post-state" value="{{state}}" />
+      </div>
+       <div class="form-group">
+        <label for="post-city">City:</label>
+        <input class="form-input" type="text" id="post-city" name="post-city" value=" {{city}}" />
+      </div>
+       <div class="form-group">
+        <label for="post-location">Address:</label>
+        <input class="form-input" type="text" id="post-address" name="post-adress" value="{{address}}" />
+      </div>
+       <div class="form-group">
+        <label for="post-danger">Is there danger to people or property? (yes/no):</label>
+        <input class="form-input" type="text" id="post-danger" name="post-danger" value="no" />
+      </div>
+       <div class="form-group">
+        <label for="post-missing">Is this a missing pet? (yes/no):</label>
+        <input class="form-input" type="text" id="post-missing" name="post-missing" value="no" />
+      </div>
+       <div class="form-group">
       </div>
       <div class="form-group">
-        <label for="post-desc">Edit Text:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc" > {{text}}</textarea>
+        <label for="post-desc">Text:</label>
+        <textarea class="form-input" id="post-desc" name="post-desc">{{text}}</textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primar update">Update</button>
-         <button  class="btn btn-danger cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary update">Update</button>
+        <a href = '/profile'> Back</a>
       </div>
     </form>
   </div>
