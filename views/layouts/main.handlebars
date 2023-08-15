@@ -6,32 +6,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neighborhood Safari</title>
  
- <!-- Tailwinds and css link-->
-     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+ <!-- Bulma and css link-->
+   <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/style.css" />
 
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-    
-      <nav>
-       
-                <!-- Conditionally render login or logout links -->
-         <a href="/" id="home">Home</a>        
-        {{#if logged_in}}
-       
-        <a href="/profile">Dashboard</a> |
-        <button class="" id="logout">logout</button>
-        {{else}}
+ 
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="/assets/images/logo-png.png" width="122" height="35">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navigation_mobile">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navigation_mobile" class="navbar-menu">
+    <div class="navbar-start">
+      <a href = "/" class="navbar-item">
+        Home
+      </a>
+      {{#if logged_in}}
+      <a href= "/profile" class="navbar-item">
+        Dashboard
+      {{/if}}
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
          
-          <a href="/login" >Dashboard</a>
-          <a href="/login">login</a>
-        {{/if}}
-       
-         <h1 id= "Title"> Neighborhood Safari</h1>
-      </nav>
+        <div class="navbar-dropdown">
+          <a href= "/about" class="navbar-item">
+            About
+          </a>
+          <a href= "/danger" class="navbar-item">
+            Dangerous Sightings
+          </a>
+          <a href= "/missing" class="navbar-item">
+            Missing Pets
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          {{#if logged_in}}
+           <a  class="button is-danger" id= "logout">
+            <strong>Log out</strong>
+          </a>
+          {{else}}
+          <a href = "/login" class="button is-primary">
+            <strong>Log in</strong>
+          </a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
@@ -46,6 +94,7 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+<script src = "/js/homepage.js"></script>
 </body>
 
 </html>
