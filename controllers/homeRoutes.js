@@ -91,6 +91,35 @@ router.get('/danger', async (req, res) => {
   }
 });
 
+router.get('/endangered', async (req, res) => {
+  try {
+    // Get all posts and JOIN with user and animal data
+    const postData = await Post.findAll({
+      include: [
+        {model: Animal,
+          attributes: ['id', 'common_name', 'scientific_name', 'endangered', 'link']
+        
+        },
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('endangered', { 
+      posts, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/profile/newPost/:id', async (req, res) => {
   try {
     // Get all posts and JOIN with user and animal data
