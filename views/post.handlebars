@@ -1,9 +1,10 @@
 <div class="card">
-  <header id="logo-blue" class="card-header">
-    <p class="card-header-title is-centered has-text-white is-size-2">
+  <header id="logo-blue" class="card-header"> 
+    <a href="{{animal.link}}" class=" card-header-title is-centered">
+    <p class=" has-text-white is-size-2">
       {{animal.common_name}}
     </p>
-
+  </a>
 
 
   </header>
@@ -20,11 +21,13 @@
       {{#if missing}}
       <h6 class="has-text-success"> MISSING </h6>
       {{/if}}
+      
 
       <p>Created by {{user.name}} on {{format_date date_created}}</p>
     </div>
     <footer class="card-footer">
       <p> {{text}} </p>
+      <a>   Link: {{animal.link}}</a>
     </footer>
   </div>
 
