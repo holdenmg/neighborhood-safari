@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll({
       include: [
         {model: Animal,
-          attributes: ['id', 'common_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'scientific_name', 'endangered', 'link']
         
         },
         {
@@ -39,7 +39,7 @@ router.get('/missing', async (req, res) => {
     const postData = await Post.findAll({
       include: [
         {model: Animal,
-          attributes: ['id', 'common_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'scientific_name', 'endangered', 'link']
         
         },
         {
@@ -68,7 +68,7 @@ router.get('/danger', async (req, res) => {
     const postData = await Post.findAll({
       include: [
         {model: Animal,
-          attributes: ['id', 'common_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'scientific_name', 'endangered', 'link']
         
         },
         {
@@ -97,7 +97,7 @@ router.get('/profile/newPost/:id', async (req, res) => {
     const postData = await Post.findAll({
       include: [
         {model: Animal,
-          attributes: ['id', 'common_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'scientific_name', 'endangered', 'link']
         
         },
         {
@@ -168,7 +168,7 @@ router.get('/post/:id', async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {model: Animal,
-          attributes: ['id', 'common_name', 'species', 'genus']
+          attributes: ['id', 'common_name', 'scientific_name', 'endangered', 'link']
         
         },
         {  model: Comment,
