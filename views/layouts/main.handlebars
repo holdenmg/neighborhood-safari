@@ -19,7 +19,7 @@
   <div class="flex-column justify-space-around">
  
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav id="logo-grey" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     
     <a class="navbar-item" href="/" >
@@ -36,17 +36,17 @@
   <div id="navigation_mobile" class="navbar-menu">
     <div class="navbar-start">
       <a href = "/" class="navbar-item">
-        Home
+       <strong> Home </strong>
       </a>
 
 
       {{#if logged_in}}
       <a href= "/profile" class="navbar-item">
-        Dashboard
+       <strong> Dashboard </strong>
       {{/if}}
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          More
+         <strong> More </strong>
         </a>
          
         <div class="navbar-dropdown">
@@ -68,7 +68,7 @@
       <div class="navbar-item">
         <div class="buttons">
           {{#if logged_in}}
-           <a  class="button is-danger" id= "logout">
+           <a id="logo-brown" class="button is-danger" id= "logout">
             <strong>Log out</strong>
           </a>
           {{else}}

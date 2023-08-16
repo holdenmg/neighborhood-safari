@@ -1,8 +1,12 @@
+<div class="title has-text-centered">
+  <h1 id="logo-grey" class ="is-size-1 has-text-danger "> DANGEROUS ANIMAL SIGHTINGS </h1>
+</div>
+
 {{#each posts as |post| }}
 {{#if post.danger}}
-<div class="card">
+<div class="card my-4">
   <header id="logo-blue" class="card-header">
-    <p class="card-header-title">
+    <p class="card-header-title is-size-4 has-text-white">
       {{animal.common_name}}
     </p>
    
@@ -17,6 +21,9 @@
     <div class="content">
       <h6>{{post.city}} {{post.state}}</h6>
    <h6>{{post.address}}</h6>
+   {{#if animal.endangered}}
+      <h6 class="has-text-warning">{{animal.endangered}}</h6>
+      {{/if}}
    {{#if post.danger}}
    <h6 class="has-text-danger">DANGER</h6>
    {{/if}}

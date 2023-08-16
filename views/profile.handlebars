@@ -1,23 +1,30 @@
 <div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+  <div class="title has-text-centered  ">
+    <h2 class=" has-text-weight-medium">Welcome, {{name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-6">
-    <a href="/profile/chooseAnimal">Create a New Post </a>
+  <div class="col-md-6 is-centered">
+    <div class="buttons is-centered">
+    <a href="/profile/chooseAnimal">
+    <button id="logo-green" class="button is-primary">
+     
+    <p>Create a New Post </p>
+    </button>
+    </a>
+     </div>
 
 
 
     {{#if posts.length}}
     <div class="col-md-6 post-list">
-      <h3>Your Posts:</h3>
+      <h3 class="is-size-3 has-text-weight-medium">Your Posts:</h3>
 
       {{#each posts as |post|}}
-      <div class="card">
+      <div class="card my-2">
   <header id="logo-blue" class="card-header">
-    <p class="card-header-title">
+    <p class="card-header-title is-size-4 has-text-white">
       {{animal.common_name}}
     </p>
    
@@ -44,19 +51,19 @@
       <div class="field is-grouped">
         
     <a href="/post/{{post.id}}" class="card-footer-item">
-    <button id="logo-blue" class="button is-info">See Post</button>
+    <button id="logo-green" class="button is-info">See Post</button>
     </a>
    
     
           <a href="/profile/edit/{{post.id}}" class="card-footer-item">
-          <button id="logo-green" class="button is-success">
-            UPDATE
+          <button id="logo-blue" class="button is-success">
+            Update
             </button>
           </a>
         
           <a class="card-footer-item">
          
-          <button class="button is-danger"  data-id="{{post.id}}">DELETE</button>
+          <button id="logo-brown" class="button is-danger"  data-id="{{post.id}}">Delete</button>
           </a>
     </div>
   </footer>

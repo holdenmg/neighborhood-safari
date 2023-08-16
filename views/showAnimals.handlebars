@@ -1,11 +1,20 @@
+<div class="columns">
+
+  <div class="column">
+<h1 class="title">Results:</h1>
+</div>
+
+<div class="column">
 <a href= "/profile/chooseAnimal"><button id="logo-green" class="button is-primary">Back</button> </a>
+</div>
+</div>
 {{#each animals as |animal| }}
     <div class="row mb-2">
       <div class="col-md-2">
        
         <a href = 
         '/profile/newPost/{{this.id}}'>
-        <button class="animal_choice" id='{{animal.id}}' onCLick="getID({{this.id}})">{{animal.common_name}}   Scientific Name:  {{animal.scientific_name}} 
+        <button id ="logo-blue" class="animal_choice button is-primary my-2" id='{{animal.id}}' onCLick="getID({{this.id}})">{{animal.common_name}} /////   {{animal.scientific_name}} 
       </div>
       
 

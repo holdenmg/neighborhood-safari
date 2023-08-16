@@ -1,6 +1,5 @@
-
 #logo-green {
-    background-color:#A4CB6A
+    background-color: #A4CB6A
 }
 
 #logo-blue {
@@ -8,11 +7,15 @@
 }
 
 #logo-brown {
-   
-        background-color: #BFB05C
-    }
 
-    #logo-grey{
-   
-        background-color: #F2F2F2
-    }
+    background-color: #BFB05C
+}
+
+#logo-grey {
+
+    background-color: #F2F2F2
+}
+
+#logo-green-text {
+   color: #A4CB6A
+}
