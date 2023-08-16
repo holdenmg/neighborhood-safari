@@ -5,7 +5,7 @@
 </div>
 
 <div class="column">
-<a href= "/profile/chooseAnimal"><button id="logo-green" class="button is-primary">Back</button> </a>
+<a href= "/profile/chooseAnimal"><button id="logo-green" class="button is-primary has-text-weight-semibold">Back</button> </a>
 </div>
 </div>
 {{#each animals as |animal| }}
@@ -14,13 +14,16 @@
        
         <a href = 
         '/profile/newPost/{{this.id}}'>
-        <button id ="logo-blue" class="animal_choice button is-primary my-2" id='{{animal.id}}' onCLick="getID({{this.id}})">{{animal.common_name}} /////   {{animal.scientific_name}} 
+        <button id ="logo-blue" class="animal_choice button is-primary has-text-weight-semibold my-2" id='{{animal.id}}' onCLick="getID({{this.id}})">{{animal.common_name}} /////   {{animal.scientific_name}} 
+        
       </div>
       
 
     </div>
     {{/each}}
+    
   </div>
+
 
 
 
