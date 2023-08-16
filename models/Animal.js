@@ -16,16 +16,16 @@ common_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-species: {
+scientific_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-genus: {
+link: {
     type: DataTypes.STRING,
-    allowNull: false,
+    
   },
 endangered: {
-    type: DataTypes.BOOLEAN,
+    type: DataTypes.STRING,
   
   },
 },

@@ -10,21 +10,35 @@ const newFormHandler = async (event) => {
     const animal_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
     
     
-    const dangerCheck = document.querySelector('#post-danger').value
-    const missingCheck = document.querySelector('#post-missing').value
-    if( dangerCheck === "on"){
-      danger = true;
+    if (document.querySelector('#post-danger').checked) {
+      var dangerChecker = true
     }
-    if( missingCheck === "on"){
-      missing = true;
+    else {
+      dangerChecker = false
     }
-    console.log(missing)
-    console.log(danger)
   
+    if (document.querySelector('#post-missing').checked) {
+      var missingChecker = true
+    }
+    else {
+      missingChecker = false
+    }
+  
+  
+    var danger = false;
+    var missing = false;
+  
+  
+    if (dangerChecker === true) {
+      danger = true;
+    };
+  
+    if (missingChecker === true) {
+      missing = true;
+    };
    
-    //const missing = false;
-  console.log(animal_id)
-    if (location && text) {
+
+    if (text) {
       
       const response = await fetch(`/api/posts`, {
         method: 'POST',

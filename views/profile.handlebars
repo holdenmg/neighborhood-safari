@@ -15,21 +15,54 @@
       <h3>Your Posts:</h3>
 
       {{#each posts as |post|}}
-      <div class="row mb-2">
-        <div class="col-md-8" id={{post.id}}>
-          <h4><a href="/post/{{post.id}}">{{animal.common_name}}</a></h4>
-          <h3>{{city}}</h3>
-          <h5>{{state}}</h5>
-          <h5>{{address}}</h5>
-        </div>
-
-        <div class="col-md-4">
-          <a href="/profile/edit/{{post.id}}">
+      <div class="card">
+  <header id="logo-blue" class="card-header">
+    <p class="card-header-title">
+      {{animal.common_name}}
+    </p>
+   
+    
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
+  <div id="logo-grey" class="card-content">
+    <div class="content">
+      <h6>{{post.city}} {{post.state}}</h6>
+   <h6>{{post.address}}</h6>
+   {{#if post.danger}}
+   <h6 class="has-text-danger">DANGER</h6>
+   {{/if}}
+   {{#if post.missing}}
+   <h6 class="has-text-success"> MISSING </h6>
+   {{/if}}
+    <p>Created on {{format_date post.date_created}}</p>
+    </div>
+    <footer class="card-footer">
+      <div class="field is-grouped">
+        
+    <a href="/post/{{post.id}}" class="card-footer-item">
+    <button id="logo-blue" class="button is-info">See Post</button>
+    </a>
+   
+    
+          <a href="/profile/edit/{{post.id}}" class="card-footer-item">
+          <button id="logo-green" class="button is-success">
             UPDATE
+            </button>
           </a>
-          <button class="delete" data-id="{{post.id}}">DELETE</button>
-
-        </div>
+        
+          <a class="card-footer-item">
+         
+          <button class="button is-danger"  data-id="{{post.id}}">DELETE</button>
+          </a>
+    </div>
+  </footer>
+  </div>
+  
+       
       </div>
       {{/each}}
     </div>
